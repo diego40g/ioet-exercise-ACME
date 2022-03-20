@@ -1,20 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package solucionacme;
+import models.Workday;
+import models.User;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-/**
- *
- * @author user-pc
- */
-public class SolucionACME {
-
-    /**
-     * @param args the command line arguments
-     */
+public class Main {
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner read=new Scanner(System.in);
+        ArrayList<User>users=new ArrayList<>();
+        System.out.println("-----------Bienvenido a ACME tabla de pares de empleados-----------");
+        while(true){
+            System.out.println("Menu presione el número para ingresar a la opción correcta: ");
+            System.out.println("1.- Ingresar usuario");
+            System.out.println("2.- Salir");
+            int var=read.nextInt();
+            switch (var) {
+                case 1:
+                    if(User.inputUser(users)!=null){
+                        users=User.inputUser(users);
+                        break;
+                    }
+                default:
+                    System.out.println("Gracias por usar nuestro programa, vuelva pronto");  
+                    return;
+            }
+        }
     }
-    
 }
