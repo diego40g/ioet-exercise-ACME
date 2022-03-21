@@ -100,8 +100,13 @@ public class UserM {
                     String hour[]=hourData.split("-");
                     String checkTime=hour[0];
                     String departureTime=hour[1];
-                    WorkdayM newDay=new WorkdayM(day,checkTime,departureTime);
-                    workDays.add(newDay);
+                    if(new WorkdayM().valTime(checkTime,departureTime)){
+                        WorkdayM newDay=new WorkdayM(day,checkTime,departureTime);
+                        workDays.add(newDay);
+                    }else{
+                        flag=false;
+                        System.out.println("Dato mal ingresado, revise el formato, hora de entra mayor que la salida");
+                    }
                 }else{
                     flag=false;
                     System.out.println("Dato mal ingresado, revise el formato");
@@ -125,6 +130,7 @@ public class UserM {
         return data.contains(signo);
     }
 
+    /*INGRESO DATOS TERMINAL
     public static ArrayList<UserM> inputUser(ArrayList<UserM>users){
         System.out.println("El formato para el ingreseo es Nombre '=' dos iniciales del día en ingles hora de entrada '-' hora de salida");
         System.out.println("Para agregar más días separados por comas");
@@ -153,7 +159,7 @@ public class UserM {
         }else{
             return users;
         }
-    }
+    }*/
     
     private static String cadenaDividida(char[] chr, int beg, int fin){
         char[] resultC=new char[fin-beg];

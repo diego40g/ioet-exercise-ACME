@@ -85,7 +85,6 @@ public class UserC implements ActionListener{
                 while (obj.hasNextLine()){
                     data.add(obj.nextLine());
                     cont++;
-                    System.out.println(cont);
                 }
                 if(cont==0){
                     viewUser.txtResult.setText("Archivo vacio");
@@ -99,7 +98,6 @@ public class UserC implements ActionListener{
                     }
                     if(cont<=1){
                         resultP+="Usuarios insuficientes para comparar";
-                        System.out.println("ENTRO");
                         resultP+="</html>";
                         viewUser.txtResult.setText(resultP);
                     }else{

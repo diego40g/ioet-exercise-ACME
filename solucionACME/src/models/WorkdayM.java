@@ -13,6 +13,10 @@ public class WorkdayM {
     private String checkTime; //24 hours format
     private String departureTime; //24 hours format
 
+    public WorkdayM() {
+
+    }
+    
     public WorkdayM(String day, String checkTime, String departureTime) {
         this.day = day;
         this.checkTime = checkTime;
@@ -43,4 +47,22 @@ public class WorkdayM {
         return departureTime;
     }
        
+    public boolean valTime(String checkTime, String departureTime){
+        String time[]=checkTime.split(":");
+        String h1=time[0];
+        String h2=time[1];
+        h1=h1.concat(time[1]);
+        int valCTime=Integer.parseInt(h1);
+        time=departureTime.split(":");
+        h1=time[0];
+        h2=time[1];
+        h1=h1.concat(time[1]);
+        int valDTime=Integer.parseInt(h1);
+        System.out.println(valCTime+"-"+valDTime);
+        if(valCTime<=valDTime){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
