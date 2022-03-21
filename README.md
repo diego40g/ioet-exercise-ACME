@@ -52,16 +52,16 @@ RENE-ASTRID: 3
 ![imgSuccessBuild](https://i.ibb.co/YBKsgPr/successful-Build.jpg)
 ## Ejecución de la Solución
 >* Ejecutados el proyecto con el botón *Run* hasta que se despliegue la ventana de bienvenida para abrir archivo .txt. <br> <p align="center">
-![imgRun](https://i.ibb.co/vcktp4Q/run-Project.jpg)
+![imgRun](https://i.ibb.co/vcktp4Q/run-Project.jpg)<br>
 ![imgBienvenida](https://i.ibb.co/s9NLGJr/insert-Data.jpg)
 >* Buscamos dentro de los directorios el archivo que deseamos usar *con formato txt*.<br> <p align="center">
 ![imgArchivo](https://i.ibb.co/tB08VHJ/subir-Archivo.jpg)
 >* Si el archivo tiene menos de 5 usuarios se pide el ingreso de la cantidad de usuarios mínima este sea seleccionando un nuevo archivo o agregando nuevos usuarios. <br> <p align="center">
 ![imgValidacion](https://i.ibb.co/xFW2vSj/user-Validation.jpg)
 ![ingresoUsuario](https://i.ibb.co/3TszPp6/add-New-User.jpg)
->* Al cumplir con la condición y las validaciones de la cadena se logra visualizar la salida esperada de coincidencias en pares de empleados
+>* Al cumplir con la condición y las validaciones de la cadena se logra visualizar la salida esperada de coincidencias en pares de empleados<br> <p align="center">
 ![tablaREsultado](https://i.ibb.co/xDQzFMX/results.jpg)
->* Cerramos el programa
+>* Cerramos el programa<br> <p align="center">
 ![cerrarAplicacion](https://i.ibb.co/HqS2LXJ/ex.jpg)
 
 ## Descripción de la Solución
