@@ -37,7 +37,9 @@ public class UserC implements ActionListener{
             String data = viewUser.txtData.getText();
             if(UserM.userEntry(data)!=null){
                 UserM user=UserM.userEntry(data);
-                users.add(user);
+                if(user!=null){
+                    users.add(user);
+                }
                 if(users.size()<5){
                     //System.out.println("Usuarios insuficientes para comparar");
                     viewUser.txtResult.setText("Usuarios insuficientes para comparar minimo son 5, a ingresado un total de "+users.size()+" usuarios");
@@ -94,11 +96,13 @@ public class UserC implements ActionListener{
                         //String input=obj.nextLine();
                         if(UserM.userEntry(input)!=null){
                             UserM user=UserM.userEntry(input);
-                            users.add(user);
+                            if(user!=null){
+                                users.add(user);
+                            }
                         }
                     }
-                    if(cont<5){
-                        resultP+="Usuarios insuficientes para comparar minimos son 5, a ingresado un total de "+cont+" usuarios";
+                    if(users.size()<5){
+                        resultP+="Usuarios insuficientes para comparar minimos son 5, a ingresado un total de "+users.size()+" usuarios";
                         resultP+="</html>";
                         viewUser.txtResult.setText(resultP);
                     }else{

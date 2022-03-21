@@ -99,13 +99,23 @@ public class UserM {
 
                     String hour[]=hourData.split("-");
                     String checkTime=hour[0];
-                    String departureTime=hour[1];
-                    if(new WorkdayM().valTime(checkTime,departureTime)){
-                        WorkdayM newDay=new WorkdayM(day,checkTime,departureTime);
-                        workDays.add(newDay);
-                    }else{
+                    String minutes[]=checkTime.split(":");
+                    if(Integer.parseInt(minutes[0])>=24||Integer.parseInt(minutes[0])<0||Integer.parseInt(minutes[1])>=60||Integer.parseInt(minutes[1])<0){
                         flag=false;
-                        System.out.println("Dato mal ingresado, revise el formato, hora de entra mayor que la salida");
+                    }else{
+                        String departureTime=hour[1];
+                        minutes=departureTime.split(":");
+                        if(Integer.parseInt(minutes[0])>24||Integer.parseInt(minutes[0])<0||Integer.parseInt(minutes[1])>61||Integer.parseInt(minutes[1])<0){
+                            flag=false;
+                        }else{
+                            if(new WorkdayM().valTime(checkTime,departureTime)){
+                                WorkdayM newDay=new WorkdayM(day,checkTime,departureTime);
+                                workDays.add(newDay);
+                            }else{
+                                flag=false;
+                                System.out.println("Dato mal ingresado, revise el formato, hora de entra mayor que la salida");
+                            }
+                        }
                     }
                 }else{
                     flag=false;
