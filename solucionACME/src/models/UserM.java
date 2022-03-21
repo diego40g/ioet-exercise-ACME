@@ -9,13 +9,16 @@ import java.util.Scanner;
 
 /**
  *
- * @author User-pc
+ * @author UserM-pc
  */
-public class User {
+public class UserM {
     private String name;
-    private ArrayList<Workday> workDays;
+    private ArrayList<WorkdayM> workDays;
 
-    public User(String name, ArrayList<Workday> workDays) {
+    public UserM() {
+    }
+    
+    public UserM(String name, ArrayList<WorkdayM> workDays) {
         this.name = name;
         this.workDays = workDays;
     }
@@ -24,7 +27,7 @@ public class User {
         this.name = name;
     }
 
-    public void setWorkDays(ArrayList<Workday> workDays) {
+    public void setWorkDays(ArrayList<WorkdayM> workDays) {
         this.workDays = workDays;
     }
 
@@ -32,11 +35,11 @@ public class User {
         return name;
     }
 
-    public ArrayList<Workday> getWorkDays() {
+    public ArrayList<WorkdayM> getWorkDays() {
         return workDays;
     }
 
-    public static String compare(User u1, User u2){
+    public static String compare(UserM u1, UserM u2){
         int cont=0;
         for(int i=0;i<u1.getWorkDays().size();i++){
             for(int j=0;j<u2.getWorkDays().size();j++){
@@ -78,36 +81,42 @@ public class User {
         return result;
     }
     
-    public static User userEntry(String data){
-        String div[]=data.split("=");
-        String name=div[0];
-        ArrayList<Workday> workDays = new ArrayList<>();
-        String dayInput=div[1];
-        String workList[]=dayInput.split(",");
-        boolean flag=true;
-        for (int i=0;i<workList.length;i++){
-            //Validación días
-            if (workList[i].contains("MO")||workList[i].contains("TU")||workList[i].contains("WE")||workList[i].contains("TH")||workList[i].contains("FR")||workList[i].contains("SA")||workList[i].contains("SU")) {
-                char[] dayData=workList[i].toCharArray();
-                String day = cadenaDividida(dayData, 0, 2);
-                String hourData=cadenaDividida(dayData, 2, dayData.length);
-                
-                String hour[]=hourData.split("-");
-                String checkTime=hour[0];
-                String departureTime=hour[1];
-                Workday newDay=new Workday(day,checkTime,departureTime);
-                workDays.add(newDay);
-            }else{
-                flag=false;
-                System.out.println("Dato mal ingresado, revise el formato");
+    public static UserM userEntry(String data){
+        if(data.contains("="))
+        {
+            String div[]=data.split("=");
+            String name=div[0];
+            ArrayList<WorkdayM> workDays = new ArrayList<>();
+            String dayInput=div[1];
+            String workList[]=dayInput.split(",");
+            boolean flag=true;
+            for (int i=0;i<workList.length;i++){
+                //Validación días
+                if (workList[i].contains("MO")||workList[i].contains("TU")||workList[i].contains("WE")||workList[i].contains("TH")||workList[i].contains("FR")||workList[i].contains("SA")||workList[i].contains("SU")) {
+                    char[] dayData=workList[i].toCharArray();
+                    String day = cadenaDividida(dayData, 0, 2);
+                    String hourData=cadenaDividida(dayData, 2, dayData.length);
+
+                    String hour[]=hourData.split("-");
+                    String checkTime=hour[0];
+                    String departureTime=hour[1];
+                    WorkdayM newDay=new WorkdayM(day,checkTime,departureTime);
+                    workDays.add(newDay);
+                }else{
+                    flag=false;
+                    System.out.println("Dato mal ingresado, revise el formato");
+                }
+
             }
-            
-        }
-        if(flag==true){
-            User user = new User(name, workDays);
-            return user;
+            if(flag==true){
+                UserM user = new UserM(name, workDays);
+                return user;
+            }else{
+                UserM user = null;
+                return user;
+            }
         }else{
-            User user = null;
+            UserM user = null;
             return user;
         }
     }
@@ -116,7 +125,7 @@ public class User {
         return data.contains(signo);
     }
 
-    public static ArrayList<User> inputUser(ArrayList<User>users){
+    public static ArrayList<UserM> inputUser(ArrayList<UserM>users){
         System.out.println("El formato para el ingreseo es Nombre '=' dos iniciales del día en ingles hora de entrada '-' hora de salida");
         System.out.println("Para agregar más días separados por comas");
         System.out.println("Ejm: ASTRID=MO10:00-12:00,TH12:00-14:00,SU20:00-21:00");
@@ -124,8 +133,8 @@ public class User {
         Scanner read=new Scanner(System.in);
         String input = read.nextLine();//ingreso datos
 
-        if(User.userEntry(input)!=null){
-            User user=User.userEntry(input);
+        if(UserM.userEntry(input)!=null){
+            UserM user=UserM.userEntry(input);
             users.add(user);
             if(users.size()<=1){
                 System.out.println("Usuarios insuficientes para comparar");
@@ -135,7 +144,7 @@ public class User {
             for(int i=0;i<users.size();i++){
                 for(int j=i;j<users.size();j++){
                     if(i!=j){
-                        String result = User.compare(users.get(i),users.get(j));
+                        String result = UserM.compare(users.get(i),users.get(j));
                         System.out.println(result);
                     }
                 }
@@ -156,4 +165,6 @@ public class User {
         String result = new String(resultC);
         return result;
     }
+    
+    
 }

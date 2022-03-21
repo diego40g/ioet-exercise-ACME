@@ -8,12 +8,12 @@ package models;
  *
  * @author user-pc
  */
-public class Workday {
+public class WorkdayM {
     private String day; //Only de two letters
     private String checkTime; //24 hours format
     private String departureTime; //24 hours format
 
-    public Workday(String day, String checkTime, String departureTime) {
+    public WorkdayM(String day, String checkTime, String departureTime) {
         this.day = day;
         this.checkTime = checkTime;
         this.departureTime = departureTime;
