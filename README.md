@@ -1,3 +1,16 @@
+>## Índice de contenido
+>1. [Descripción del Ejercicio](#ejercicio-ioet)
+>2. [Ejemplos](#ejemplo-1) 
+>       * [Ejemplo 1](#ejemplo-1)
+>       * [Ejemplo 2](#ejemplo-2)
+>3. [Requisito](#requisitos)
+>4. [Instalación](#instalación-de-la-solución)
+>5. [Ejecución](#ejecución-de-la-solución)
+>6. [Descripción de la solución](#descripción-de-la-solución)
+>7. [Arquitectura de software](#arquitectura-de-software-utilizada)
+>8. [Explicación del enfoque](#explicación-del-enfoque)
+>9. [Metodología  usada](#metodología-usada)
+
 # Ejercicio IOET
 La empresa ACME ofrece a sus empleados la flexibilidad de trabajar las horas que deseen. Pero debido a algunas circunstancias externas, necesitan saber qué empleados han estado en la oficina en el mismo período de tiempo.
 
