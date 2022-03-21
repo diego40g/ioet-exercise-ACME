@@ -38,9 +38,9 @@ public class UserC implements ActionListener{
             if(UserM.userEntry(data)!=null){
                 UserM user=UserM.userEntry(data);
                 users.add(user);
-                if(users.size()<=1){
+                if(users.size()<5){
                     //System.out.println("Usuarios insuficientes para comparar");
-                    viewUser.txtResult.setText("Usuarios insuficientes para comparar");
+                    viewUser.txtResult.setText("Usuarios insuficientes para comparar minimo son 5, a ingresado un total de "+users.size()+" usuarios");
                 }else{
                     //total de combinaciones (RESPUESTA)
                     for(int i=0;i<users.size();i++){
@@ -62,6 +62,7 @@ public class UserC implements ActionListener{
         if((e.getSource()==viewUser.btnFileChooser)||(e.getSource()==viewUser.btnFileChooser1)){
             viewUser.jPanel1.setVisible(true);
             viewUser.jPanel2.setVisible(false);
+            users.clear();
             String file="";
             String resultP="<html>";
             JFileChooser jFile= new JFileChooser();
@@ -96,8 +97,8 @@ public class UserC implements ActionListener{
                             users.add(user);
                         }
                     }
-                    if(cont<=1){
-                        resultP+="Usuarios insuficientes para comparar";
+                    if(cont<5){
+                        resultP+="Usuarios insuficientes para comparar minimos son 5, a ingresado un total de "+cont+" usuarios";
                         resultP+="</html>";
                         viewUser.txtResult.setText(resultP);
                     }else{

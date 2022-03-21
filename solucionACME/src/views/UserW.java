@@ -38,12 +38,13 @@ public class UserW extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtResult = new javax.swing.JLabel();
         txtData = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         txtInstructions2 = new javax.swing.JLabel();
         btnFileChooser1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtResult = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -102,8 +103,6 @@ public class UserW extends javax.swing.JFrame {
 
         jLabel5.setText("Resultado:");
 
-        txtResult.setText("Example result");
-
         txtData.setToolTipText("");
         txtData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,12 +121,15 @@ public class UserW extends javax.swing.JFrame {
 
         txtInstructions2.setText("<html><p>El formato para el ingreseo es Nombre '=' dos iniciales del día</p><p>en ingles hora de entrada '-' hora de salida. Para agregar más días </p><p>separarlos por comas.</p></html>");
 
-        btnFileChooser1.setText("Añadir Archivo");
+        btnFileChooser1.setText("Cambiar Archivo");
         btnFileChooser1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFileChooser1ActionPerformed(evt);
             }
         });
+
+        txtResult.setText("Example result");
+        jScrollPane1.setViewportView(txtResult);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -144,14 +146,14 @@ public class UserW extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtResult, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnAdd)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnFileChooser1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnExit))
-                            .addComponent(txtInstructions2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtInstructions2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 30, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -170,9 +172,9 @@ public class UserW extends javax.swing.JFrame {
                     .addComponent(btnFileChooser1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtResult)
-                .addGap(106, 106, 106))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
 
         getContentPane().add(jPanel1);
@@ -246,6 +248,7 @@ public class UserW extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     public javax.swing.JPanel jPanel1;
     public javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTextField txtData;
     private javax.swing.JLabel txtInstructions2;
     public javax.swing.JLabel txtResult;
